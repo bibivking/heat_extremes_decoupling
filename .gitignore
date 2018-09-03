@@ -1,0 +1,7 @@
+src/get*.py
+src/plot*.py
+
+src/__pycache__/*
+__pycache__/*
+
+src/testing/*.py
