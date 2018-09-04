@@ -4,7 +4,7 @@ DATA_DIR = data
 SRC = src
 TEX_DIR = /Users/$(USER)/Dropbox/fluxnet_heatwaves_paper/figures
 FIG_DIR = /Users/$(USER)/Dropbox/fluxnet_heatwaves_paper/figures/figs
-
+SUB_FIG_DIR = /Users/$(USER)/Dropbox/fluxnet_heatwaves_paper/submission_figures
 
 all: data figs paper
 data: $(DATA_DIR)/fluxnet2015_all_events.csv \
@@ -88,7 +88,7 @@ $(TEX_DIR)/figures.pdf:	$(TEX_DIR)/figures.tex \
 						$(FIG_DIR)/all_events_GPP_FLUXNET_negative.pdf \
 						$(FIG_DIR)/all_events_Qle_FLUXNET_positive.pdf
 	cd $(TEX_DIR) && $(MAKE) clean && $(MAKE)
-
+	cd $(SUB_FIG_DIR) && ./get_figs.BASH && $(MAKE) clean && $(MAKE)
 cleanfigs:
 	rm -f $(FIG_DIR)/*.pdf
 
