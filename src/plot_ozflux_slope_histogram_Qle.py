@@ -78,7 +78,7 @@ def main(fname1, fname2):
         ax.axvline(x=0.0, ls="--", color="black", alpha=0.6)
 
         if count == 0:
-            ax.set_ylabel("Density", position=(0.5, 0.0))
+            ax.set_ylabel("Probability density", position=(0.5, 0.0))
         if count == 4:
             #ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
             ax.set_xlabel('Slope (W m$^{-2}$ $\degree$C$^{-1}$)')

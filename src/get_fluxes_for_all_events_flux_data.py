@@ -275,8 +275,6 @@ def get_all_events(df_flx, df_met):
 def get_values(df_dm, df_dmu, df_df, df_dfs, TXx_idx, TXx_idx_minus_four,
                TXx_idx_minus_six):
 
-    PA_TO_KPA = 0.001
-
     Tairs = df_dm[(df_dm.index >= TXx_idx_minus_four) &
                   (df_dm.index <= TXx_idx)].Tair.values
     Qles = df_df[(df_dm.index >= TXx_idx_minus_four) &
@@ -292,7 +290,7 @@ def get_values(df_dm, df_dmu, df_df, df_dfs, TXx_idx, TXx_idx_minus_four,
                   (df_dm.index <= TXx_idx)].Qair.values
     press = df_dmu[(df_dm.index >= TXx_idx_minus_four) &
                   (df_dm.index <= TXx_idx)].PSurf.values
-    press *= PA_TO_KPA
+    press *= c.PA_TO_KPA
 
 
     vpds = qair_to_vpd(qair, Tairs, press)
@@ -517,10 +515,8 @@ def open_file(flux_fn, met_fn, oz_flux=True):
 
 def qair_to_vpd(qair, tair, press):
 
-    PA_TO_KPA = 0.001
-
     # convert back to Pa
-    press /= PA_TO_KPA
+    press /= c.PA_TO_KPA
 
     # saturation vapor pressure
     es = 100.0 * 6.112 * np.exp((17.67 * tair) / (243.5 + tair))
@@ -528,7 +524,7 @@ def qair_to_vpd(qair, tair, press):
     # vapor pressure
     ea = (qair * press) / (0.622 + (1.0 - 0.622) * qair)
 
-    vpd = (es - ea) * PA_TO_KPA
+    vpd = (es - ea) * c.PA_TO_KPA
     vpd = np.where(vpd < 0.05, 0.05, vpd)
 
     return vpd
