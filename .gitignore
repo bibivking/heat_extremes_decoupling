@@ -7,3 +7,7 @@ __pycache__/*
 src/testing/*.py
 data/*.csv
 fluxnet2015_trees/*.nc
+
+.DS_Store
+data/*
+src/.DS_Store
