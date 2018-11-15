@@ -36,15 +36,20 @@ $(DATA_DIR)/ozflux_heatwaves_gpp_sqrt_d_et_non.csv:	$(SRC)/get_gpp_sqrt_D_et_for
 	python $<
 $(DATA_DIR)/ozflux_heatwaves_gpp_sqrt_d_et.csv:	$(SRC)/get_gpp_sqrt_D_et_for_heatwaves_flux_data.py
 	python $<
-
+$(DATA_DIR)/fluxnet2015_heatwaves_gpp_sqrt_d_et.csv:	$(SRC)/get_gpp_sqrt_D_et_for_heatwaves_flux_data.py
+	python $<
 ##
 # Figures - set these up so that if any data changes, they are *ALL* remade
 ##
-
+$(DATA_DIR)/ozflux_slopes_GPP.csv:	$(SRC)/plot_GPP_at_all_events_above_Tthreh.py \
+										$(DATA_DIR)/ozflux_all_events.csv
 $(FIG_DIR)/all_events_GPP_negative.pdf:	$(SRC)/plot_GPP_at_all_events_above_Tthreh.py \
 										$(DATA_DIR)/ozflux_all_events.csv
 	python $<
 $(FIG_DIR)/all_events_GPP_positive.pdf:	$(SRC)/plot_GPP_at_all_events_above_Tthreh.py \
+										$(DATA_DIR)/ozflux_all_events.csv
+	python $<
+$(DATA_DIR)/ozflux_slopes_Qle.csv:	$(SRC)/plot_Qle_at_all_events_above_Tthreh.py \
 										$(DATA_DIR)/ozflux_all_events.csv
 	python $<
 $(FIG_DIR)/all_events_Qle_positive.pdf:	$(SRC)/plot_Qle_at_all_events_above_Tthreh.py \
