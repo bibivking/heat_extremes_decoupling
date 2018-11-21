@@ -81,6 +81,7 @@ def main(fname):
         if count == 4:
             #ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
             ax.set_xlabel('Slope (g C m$^{2}$ d$^{-1}$ $\degree$C$^{-1}$)')
+
         else:
             ax.set_xlabel(" ")
         from matplotlib.ticker import MaxNLocator

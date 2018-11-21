@@ -122,7 +122,7 @@ def main(fname, fname2=None, slope_type=None):
             ax.set_ylabel("LE (W m$^{-2}$)", position=(0.5, 0.0))
         if count == 6:
             #ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
-            ax.set_xlabel('Temperature ($^\degree$C)', position=(1.0, 0.5))
+            ax.set_xlabel('Temperature ($\degree$C)', position=(1.0, 0.5))
 
         if count < 5:
             plt.setp(ax.get_xticklabels(), visible=False)
