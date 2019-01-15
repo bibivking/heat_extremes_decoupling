@@ -45,8 +45,8 @@ def main(fname, fname2=None, slope_type=None):
     width = 10
     height = 8
     fig = plt.figure(figsize=(width, height))
-    fig.subplots_adjust(hspace=0.1)
-    fig.subplots_adjust(wspace=0.05)
+    fig.subplots_adjust(hspace=0.12)
+    fig.subplots_adjust(wspace=0.13)
     plt.rcParams['text.usetex'] = False
     plt.rcParams['font.family'] = "sans-serif"
     plt.rcParams['font.sans-serif'] = "Helvetica"
@@ -127,8 +127,8 @@ def main(fname, fname2=None, slope_type=None):
         if count < 5:
             plt.setp(ax.get_xticklabels(), visible=False)
 
-        if count != 0 and count != 2 and count != 4 and count != 6:
-            plt.setp(ax.get_yticklabels(), visible=False)
+        #if count != 0 and count != 2 and count != 4 and count != 6:
+        #    plt.setp(ax.get_yticklabels(), visible=False)
 
         props = dict(boxstyle='round', facecolor='white', alpha=1.0,
                      ec="white")
@@ -137,11 +137,32 @@ def main(fname, fname2=None, slope_type=None):
                 transform=ax.transAxes, fontsize=12, verticalalignment='top',
                 bbox=props)
 
+
+        #ax.set_ylim(0, 280)
+
+        if count == 0:
+            ax.set_ylim(0, 100)
+        elif count == 1:
+            ax.set_ylim(0, 160)
+        elif count == 2:
+            ax.set_ylim(0, 180)
+        elif count == 3:
+            ax.set_ylim(0, 180)
+        elif count == 4:
+            ax.set_ylim(0, 120)
+        elif count == 5:
+            ax.set_ylim(0, 160)
+        elif count == 6:
+            ax.set_ylim(0, 260)
+
         from matplotlib.ticker import MaxNLocator
         ax.yaxis.set_major_locator(MaxNLocator(4))
-        ax.set_ylim(0, 280)
+
         ax.set_xlim(18, 47)
         count += 1
+
+    #plt.show()
+    #sys.exit()
 
     ofdir = "/Users/mdekauwe/Dropbox/fluxnet_heatwaves_paper/figures/figs"
     ofname = "all_events_Qle_%s.pdf" % (slope_type)

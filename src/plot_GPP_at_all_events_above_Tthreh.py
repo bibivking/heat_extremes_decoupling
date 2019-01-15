@@ -51,8 +51,8 @@ def main(fname, fname2=None, slope_type=None):
     width = 10
     height = 8
     fig = plt.figure(figsize=(width, height))
-    fig.subplots_adjust(hspace=0.05)
-    fig.subplots_adjust(wspace=0.05)
+    fig.subplots_adjust(hspace=0.12)
+    fig.subplots_adjust(wspace=0.13)
     plt.rcParams['text.usetex'] = False
     plt.rcParams['font.family'] = "sans-serif"
     plt.rcParams['font.sans-serif'] = "Helvetica"
@@ -78,6 +78,7 @@ def main(fname, fname2=None, slope_type=None):
         df_site = df[df.site == site]
         events = int(len(df_site)/4)
 
+        site_max = -9999.
         cnt = 0
         for e in range(0, events):
 
@@ -118,9 +119,12 @@ def main(fname, fname2=None, slope_type=None):
                             df_site["GPP"][cnt:cnt+4],
                             label=site, ls="-", marker="o", color="darkgreen",
                             zorder=1, alpha=0.4)
+
+            if np.max(df_site["GPP"][cnt:cnt+4]) > site_max:
+                site_max = np.max(df_site["GPP"][cnt:cnt+4]) * 1.5
             cnt += 4
         if count == 2:
-            ax.set_ylabel("GPP (g C m$^{-2}$ d$^{-1}$)", position=(0.5, 0.0))
+            ax.set_ylabel("GPP (g C m$^{-2}$ d$^{-1}$)", position=(3.0, 0.0))
         if count == 6:
             #ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
             ax.set_xlabel('Temperature ($\degree$C)', position=(1.0, 0.5))
@@ -128,8 +132,8 @@ def main(fname, fname2=None, slope_type=None):
         if count < 5:
             plt.setp(ax.get_xticklabels(), visible=False)
 
-        if count != 0 and count != 2 and count != 4 and count != 6:
-            plt.setp(ax.get_yticklabels(), visible=False)
+        #if count != 0 and count != 2 and count != 4 and count != 6:
+        #    plt.setp(ax.get_yticklabels(), visible=False)
 
         props = dict(boxstyle='round', facecolor='white', alpha=1.0,
                      ec="white")
@@ -141,9 +145,29 @@ def main(fname, fname2=None, slope_type=None):
 
         from matplotlib.ticker import MaxNLocator
         ax.yaxis.set_major_locator(MaxNLocator(4))
-        ax.set_ylim(0, 15)
+        #ax.set_ylim(0, 15)
+
+        if count == 0:
+            ax.set_ylim(0, 3)
+        elif count == 1:
+            ax.set_ylim(0, 4)
+        elif count == 2:
+            ax.set_ylim(0, 5)
+        elif count == 3:
+            ax.set_ylim(0, 7)
+        elif count == 4:
+            ax.set_ylim(0, 3)
+        elif count == 5:
+            ax.set_ylim(0, 7)
+        elif count == 6:
+            ax.set_ylim(0, 15)
+
+
         ax.set_xlim(18, 47)
         count += 1
+
+    #plt.show()
+    #sys.exit()
 
     ofdir = "/Users/mdekauwe/Dropbox/fluxnet_heatwaves_paper/figures/figs"
     ofname = "all_events_GPP_%s.pdf" % (slope_type)

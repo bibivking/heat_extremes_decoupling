@@ -60,8 +60,8 @@ def main(fname, slope_type):
     width = 10
     height = 8
     fig = plt.figure(figsize=(width, height))
-    fig.subplots_adjust(hspace=0.05)
-    fig.subplots_adjust(wspace=0.05)
+    fig.subplots_adjust(hspace=0.12)
+    fig.subplots_adjust(wspace=0.13)
     plt.rcParams['text.usetex'] = False
     plt.rcParams['font.family'] = "sans-serif"
     plt.rcParams['font.sans-serif'] = "Helvetica"
@@ -142,8 +142,8 @@ def main(fname, slope_type):
         if count < 5:
             plt.setp(ax.get_xticklabels(), visible=False)
 
-        if count != 0 and count != 2 and count != 4 and count != 6:
-            plt.setp(ax.get_yticklabels(), visible=False)
+        #if count != 0 and count != 2 and count != 4 and count != 6:
+        #    plt.setp(ax.get_yticklabels(), visible=False)
 
         props = dict(boxstyle='round', facecolor='white', alpha=1.0,
                      ec="white")
@@ -153,9 +153,28 @@ def main(fname, slope_type):
                 bbox=props)
 
         from matplotlib.ticker import MaxNLocator
-        ax.yaxis.set_major_locator(MaxNLocator(4))
+        #ax.yaxis.set_major_locator(MaxNLocator(4))
         ax.xaxis.set_major_locator(MaxNLocator(6))
-        ax.set_ylim(0, 280)
+        #ax.set_ylim(0, 280)
+
+        if count == 0:
+            ax.set_ylim(0, 140)
+        elif count == 1:
+            ax.set_ylim(0, 140)
+        elif count == 2:
+            ax.set_ylim(0, 100)
+        elif count == 3:
+            ax.set_ylim(0, 260)
+        elif count == 4:
+            ax.set_ylim(0, 60)
+        elif count == 5:
+            ax.set_ylim(0, 240)
+        elif count == 6:
+            ax.set_ylim(0, 100)
+
+        from matplotlib.ticker import MaxNLocator
+        ax.yaxis.set_major_locator(MaxNLocator(4))
+
         ax.set_xlim(18, 47)
         count += 1
 
