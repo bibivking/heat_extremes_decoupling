@@ -141,7 +141,7 @@ def main(fname1, fname2, fname3, fname4):
             ax.set_ylabel('E (mm d$^{-1}$)')
         if count == 4:
             #ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
-            ax.set_xlabel(r"GPP $\times$ D$^{0.5}$ (g C kPa m$^{-2}$ d$^{-1}$)",
+            ax.set_xlabel(r"GPP $\times$ D$^{0.5}$ (g C kPa$^{0.5}$ m$^{-2}$ d$^{-1}$)",
                           position=(1.0, 0.5))
         else:
             ax.set_xlabel(" ")

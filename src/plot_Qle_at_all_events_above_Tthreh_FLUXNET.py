@@ -136,7 +136,7 @@ def main(fname, slope_type):
         if count == 4:
             ax.set_ylabel("LE (W m$^{-2}$)", position=(0.5, 1.0))
         if count == 6:
-            ax.set_xlabel('Temperature ($^\circ$C)', position=(1.0, 0.5))
+            ax.set_xlabel('Temperature ($\degree$C)', position=(1.0, 0.5))
             #ax.set_xlabel('Temperature ($^\circ$C)')
 
         if count < 5:
@@ -153,6 +153,7 @@ def main(fname, slope_type):
                 bbox=props)
 
         from matplotlib.ticker import MaxNLocator
+<<<<<<< HEAD
         #ax.yaxis.set_major_locator(MaxNLocator(4))
         ax.xaxis.set_major_locator(MaxNLocator(6))
         #ax.set_ylim(0, 280)
@@ -175,6 +176,10 @@ def main(fname, slope_type):
         from matplotlib.ticker import MaxNLocator
         ax.yaxis.set_major_locator(MaxNLocator(4))
 
+=======
+        ax.yaxis.set_major_locator(MaxNLocator(4))
+        ax.set_ylim(0, 280)
+>>>>>>> db692bb31cd723002caa0e878a65bffd3f79318a
         ax.set_xlim(18, 47)
         count += 1
 
