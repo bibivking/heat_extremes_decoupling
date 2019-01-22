@@ -56,11 +56,11 @@ def main(fname, fname2=None, slope_type=None):
     plt.rcParams['text.usetex'] = False
     plt.rcParams['font.family'] = "sans-serif"
     plt.rcParams['font.sans-serif'] = "Helvetica"
-    plt.rcParams['axes.labelsize'] = 14
-    plt.rcParams['font.size'] = 14
-    plt.rcParams['legend.fontsize'] = 10
-    plt.rcParams['xtick.labelsize'] = 14
-    plt.rcParams['ytick.labelsize'] = 14
+    plt.rcParams['axes.labelsize'] = 16
+    plt.rcParams['font.size'] = 16
+    plt.rcParams['legend.fontsize'] = 12
+    plt.rcParams['xtick.labelsize'] = 16
+    plt.rcParams['ytick.labelsize'] = 16
 
     labels = label_generator('lower', start="(", end=")")
 
