@@ -14,6 +14,9 @@ Suzanne Prober and Michael Roderick
 
 Repository containing all the code to reproduce the results in De Kauwe et al. (2018) Examining the evidence for decoupling between photosynthesis and transpiration during heat extremes. Biogeosciences, accepted.
 
+[![DOI](https://zenodo.org/badge/147149598.svg)](https://zenodo.org/badge/latestdoi/147149598)
+
+
 ## Datasets
 
 * Eddy covariance dataset 1: [FLUXNET2015](http://fluxnet.fluxdata.org/data/fluxnet2015-dataset)
