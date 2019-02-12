@@ -5,15 +5,14 @@ Belinda E. Medlyn,
 Andrew J. Pitman,
 John E. Drake,
 Anna Ukkola,
-Anne Griebal,
+Anne Griebel,
 Elise Pendall,
 Suzanne Prober and Michael Roderick
 
 
 ## Overview
 
-Repository containing all the code to reproduce the results in De Kauwe et al. (2018) Examining the evidence for sustained transpiration during heat extremes.
-Submitted.
+Repository containing all the code to reproduce the results in De Kauwe et al. (2018) Examining the evidence for decoupling between photosynthesis and transpiration during heat extremes. Biogeosciences, accepted.
 
 ## Datasets
 
